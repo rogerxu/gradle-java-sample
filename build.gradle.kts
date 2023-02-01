@@ -3,19 +3,17 @@ allprojects {
 }
 
 subprojects {
-    apply(plugin = "jacoco")
     apply(plugin = "java")
+    apply(plugin = "jacoco")
 
-    tasks {
-        named<JacocoReport>("jacocoTestReport") {
-            reports {
-                xml.required.set(true)
-                csv.required.set(true)
-            }
+    val jacocoTestReport by tasks.existing(JacocoReport::class) {
+        reports {
+            xml.required.set(true)
+            csv.required.set(true)
         }
+    }
 
-        named("test") {
-            finalizedBy("jacocoTestReport")
-        }
+    val test by tasks.existing {
+        finalizedBy(jacocoTestReport)
     }
 }
