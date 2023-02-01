@@ -8,8 +8,6 @@ plugins {
     id("demo.java-application-conventions")
 }
 
-version = "1.0.0"
-
 dependencies {
     implementation("org.apache.commons:commons-text")
     implementation(project(":utilities"))

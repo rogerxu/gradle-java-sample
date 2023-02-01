@@ -7,5 +7,3 @@
 plugins {
     id("demo.java-library-conventions")
 }
-
-version = "1.0.0"
